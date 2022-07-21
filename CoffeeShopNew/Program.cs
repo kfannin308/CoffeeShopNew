@@ -2,6 +2,7 @@ using CoffeeShopNew.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace CoffeeShopNew
 {
@@ -54,7 +55,7 @@ namespace CoffeeShopNew
             services.AddControllersWithViews();
                            
             services.AddDbContext<CoffeeShopNewContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Default Connection")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
            
         }
 

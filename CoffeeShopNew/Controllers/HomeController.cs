@@ -22,8 +22,8 @@ namespace CoffeeShopNew.Controllers
         }
         public IActionResult Products()
         {
-            
-            return View();
+            var productList = _coffeeShopNewContext.Products.ToArray();
+            return View(productList);
         }
 
         public IActionResult Privacy()

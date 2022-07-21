@@ -1,0 +1,15 @@
+﻿@model CoffeeShopNew.Models.Products[]
+    
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>"List of Products"</h1>
+<div>
+    @{
+        foreach (var curr in Model)
+        {
+            <a href="/Home/Details?id=@curr.Id">@curr.Name</a>
+        }
+    }
+</div>
