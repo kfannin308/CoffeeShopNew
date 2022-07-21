@@ -12,8 +12,10 @@ namespace CoffeeShopNew
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
-
+            //builder.Services.AddControllersWithViews();
+            var startup = new Startup(builder.Configuration);
+            startup.ConfigureServices(builder.Services);
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -50,10 +52,10 @@ namespace CoffeeShopNew
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
-                
+                           
             services.AddDbContext<CoffeeShopNewContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                    options.UseSqlServer(Configuration.GetConnectionString("Default Connection")));
+           
         }
 
         public void Configure(IApplicationBuilder app)

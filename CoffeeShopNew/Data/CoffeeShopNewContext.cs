@@ -5,7 +5,14 @@ namespace CoffeeShopNew.Data
 {
     public class CoffeeShopNewContext: DbContext
     {
-        public DbSet<Products> Products { get; set; } = null;
+        public CoffeeShopNewContext(DbContextOptions<CoffeeShopNewContext> options) : base(options)
+
+        {
+
+            // Nothing needed
+
+        }
+        public DbSet<Products> Products { get; set; }
     }
 
     

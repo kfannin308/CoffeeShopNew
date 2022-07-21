@@ -1,4 +1,5 @@
-﻿using CoffeeShopNew.Models;
+﻿using CoffeeShopNew.Data;
+using CoffeeShopNew.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,12 +8,14 @@ namespace CoffeeShopNew.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private CoffeeShopNewContext _coffeeShopNewContext;
 
-        public HomeController(ILogger<HomeController> logger)
+       
+        public HomeController(ILogger<HomeController> logger, CoffeeShopNewContext newCoffeeShopNewContext)
         {
             _logger = logger;
+            _coffeeShopNewContext = newCoffeeShopNewContext;
         }
-
         public IActionResult Index()
         {
             return View();
