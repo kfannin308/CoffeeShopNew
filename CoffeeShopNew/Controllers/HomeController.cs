@@ -25,6 +25,20 @@ namespace CoffeeShopNew.Controllers
             var productList = _coffeeShopNewContext.Products.ToArray();
             return View(productList);
         }
+        public IActionResult Details(int productId)
+        {
+            Products theProduct = null;
+            var productList = _coffeeShopNewContext.Products.ToArray();
+            foreach (var curr in productList)
+            {
+                if (curr.Id == productId)
+                {
+                    theProduct = curr;
+                    break;
+                }
+            }
+            return View(theProduct);
+        }
 
         public IActionResult Privacy()
         {

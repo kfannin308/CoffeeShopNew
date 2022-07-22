@@ -1,15 +1,15 @@
 ﻿@model CoffeeShopNew.Models.Products[]
     
 @{
-    ViewData["Title"] = "Products";
+    ViewData["Title"] = "Our Products";
 }
 
-<h1>"List of Products"</h1>
+<h1>Our Products</h1>
 <div>
     @{
         foreach (var curr in Model)
         {
-            <a href="/Home/Details?id=@curr.Id">@curr.Name</a>
+            <a href="/Home/Details?productId=@curr.Id">@curr.Description</a><br />
         }
     }
 </div>
