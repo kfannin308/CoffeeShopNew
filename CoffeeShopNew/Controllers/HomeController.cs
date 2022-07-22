@@ -20,24 +20,19 @@ namespace CoffeeShopNew.Controllers
         {
             return View();
         }
-        public IActionResult Products()
+        public IActionResult Registration()
         {
-            var productList = _coffeeShopNewContext.Products.ToArray();
-            return View(productList);
+            return View();
         }
-        public IActionResult Details(int productId)
+        public IActionResult Summary(string firstName, string lastName, string email, string password, string coffee, string ageRange)
         {
-            Products theProduct = null;
-            var productList = _coffeeShopNewContext.Products.ToArray();
-            foreach (var curr in productList)
-            {
-                if (curr.Id == productId)
-                {
-                    theProduct = curr;
-                    break;
-                }
-            }
-            return View(theProduct);
+            ViewData["firstName"] = firstName;
+            ViewData["lastName"] = lastName;
+            ViewData["email"] = email;
+            ViewData["password"] = password;
+            ViewData["coffee"] = coffee;
+            ViewData["ageRange"] = ageRange;
+            return View();
         }
 
         public IActionResult Privacy()
