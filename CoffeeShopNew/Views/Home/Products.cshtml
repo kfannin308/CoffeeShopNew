@@ -9,7 +9,7 @@
     @{
         foreach (var curr in Model)
         {
-            <a href="/Home/Details?productId=@curr.Id">@curr.Description</a><br />
+            <a href="/Home/Details?productId=@curr.Id">@curr.Description &nbsp $@curr.Price</a><br />
         }
     }
 </div>
